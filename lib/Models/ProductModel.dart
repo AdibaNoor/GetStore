@@ -2,13 +2,13 @@ import 'Rating.dart';
 
 class ProductModel {
   ProductModel({
-      this.id, 
-      this.title, 
-      this.price, 
-      this.description, 
-      this.category, 
-      this.image, 
-      this.rating,});
+       this.id,
+       this.title,
+      this.price,
+      this.description,
+      this.category,
+       this.image,
+       this.rating,});
 
   ProductModel.fromJson(dynamic json) {
     id = json['id'];
@@ -17,15 +17,15 @@ class ProductModel {
     description = json['description'];
     category = json['category'];
     image = json['image'];
-    rating = json['rating'] != null ? Rating.fromJson(json['rating']) : null;
+    rating = (json['rating'] != null ? Rating.fromJson(json['rating']) : null)!;
   }
-  int id;
-  String title;
-  double price;
-  String description;
-  String category;
-  String image;
-  Rating rating;
+  int? id;
+  String? title;
+  double? price;
+  String? description;
+  String? category;
+  String? image;
+  Rating? rating;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -36,7 +36,7 @@ class ProductModel {
     map['category'] = category;
     map['image'] = image;
     if (rating != null) {
-      map['rating'] = rating.toJson();
+      map['rating'] = rating?.toJson();
     }
     return map;
   }
