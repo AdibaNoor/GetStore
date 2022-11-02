@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:getstore/Models/ProductsModel.dart';
+import 'package:getstore/Models/ProductModel.dart';
 import 'package:http/http.dart' as http;
 class NewHomePage extends StatefulWidget {
   const NewHomePage({Key? key}) : super(key: key);
@@ -11,17 +11,20 @@ class NewHomePage extends StatefulWidget {
 }
 
 class _NewHomePageState extends State<NewHomePage> {
-  Future<List<ProductModel>> getData() async{
-    var response = await http.get(Uri.https('fakestoreapi.com','products'));
-    var jsonData = jsonDecode(response.body);
-    List<ProductModel> productslist = [];
-    for(var u in jsonData){
-      // ProductModel products = ProductModel(title: '');
-      // productslist.add(products);
-      productslist.add(u);
+  List<ProductModel> productslist = [];
+  Future<List<ProductModel>> getData () async{
+    final response = await http.get(Uri.parse('https://fakestoreapi.com/products'));
+    var jsonData = jsonDecode(response.body.toString());
+
+
+    if(response.statusCode == 200){
+      for(Map u in jsonData){
+        productslist.add(ProductModel.fromJson(u));
+      }
+      return productslist;
+    }else{
+      return productslist;
     }
-    print("vhghjbj");
-    return productslist;
   }
   @override
   Widget build(BuildContext context) {
@@ -31,23 +34,32 @@ class _NewHomePageState extends State<NewHomePage> {
       ),
       body: Container(
         child: Card(
-          child: FutureBuilder(
-            future: getData(),
-            builder: (context,AsyncSnapshot snapshot){
-              if(snapshot.data == null){
-                return Container(
-                  child: Center(
-                    child: Text('sfcjn'),
-                  ),
-                );
-              }else return ListView.builder(
-                itemCount: snapshot.data.length,
-                  itemBuilder: (context,index){
-                  return ListTile(
-                    title: Text(snapshot.data[index].title),
+          child: Expanded(
+            child: FutureBuilder(
+              future: getData (),
+              builder: (context,AsyncSnapshot snapshot){
+                if(snapshot.hasData){
+                  return Container(
+                    child: Center(
+                      child: Text('Loading'),
+                    ),
                   );
-                  });
-            },
+                }else return ListView.builder(
+                  itemCount: productslist.length,
+                    itemBuilder: (context,index){
+                    return Card(
+                      elevation: 2,
+                      color: Colors.white38,
+                      child: Column(
+                        children: [
+                          Text(productslist[index].title.toString()),
+                        ],
+                      ),
+                      
+                    );
+                    });
+              },
+            ),
           ),
         ),
       ),

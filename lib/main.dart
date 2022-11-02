@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const NewHomePage(),
     );
   }
 }
