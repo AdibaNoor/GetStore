@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getstore/Pages/LoginPage.dart';
 import 'package:getstore/Pages/NewHome.dart';
-import 'package:getstore/Utils/constants.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
