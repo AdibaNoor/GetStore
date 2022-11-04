@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getstore/Pages/LoginPage.dart';
+import 'package:getstore/Pages/NewHome.dart';
+import 'package:getstore/Utils/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,17 +22,17 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    double custom_height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.cyan,
-      body:Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+      backgroundColor: Color(0xff222b12),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("GetStore", style: TextStyle(height: 40,color: Colors.black),),
-            Icon(Icons.shopping_cart,size: 70,color: Colors.black,),
+            Text("GetStore", style: TextStyle(fontSize: 34,color: Color(0xfffbefe3)),),
+            Icon(Icons.shopping_cart,size: 100,color: Color(0xfffbefe3),),
           ],
         ),
+      )
 
     );
   }
