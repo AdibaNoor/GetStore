@@ -17,14 +17,14 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Welcome!',style: TextStyle(fontSize: 30,color: Color(0xff222b12)),),
+            Text('Welcome!',style: TextStyle(fontSize: 30,color: Color(0xff222b12),fontWeight: FontWeight.bold),),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Container(
                 padding: EdgeInsets.all(18),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Color(0xfffbefe3),
+                  color: Color(0xfff3ece1),
                 ),
                 child: Column(
                   children: [
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: InputDecoration(
                           hintText: 'Email',
                           labelText: 'Email',
-                          labelStyle: TextStyle(color: Color(0xff222b12)),
+                          labelStyle: TextStyle(color: Color(0xff222b12),fontWeight: FontWeight.bold),
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.email_outlined,color: Color(0xff222b12),),
                         ),
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: InputDecoration(
                           hintText: 'Password',
                           labelText: 'Password',
-                          labelStyle: TextStyle(color: Color(0xff222b12)),
+                          labelStyle: TextStyle(color: Color(0xff222b12),fontWeight: FontWeight.bold,),
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.lock, color: Color(0xff222b12),),
                         ),
@@ -63,14 +63,14 @@ class _LoginPageState extends State<LoginPage> {
                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> NewHomePage()));
                      },
                      child: Container(
-                       padding: EdgeInsets.symmetric(horizontal: 18,vertical: 10),
+                       padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                        decoration: BoxDecoration(
                          color: Color(0xff222b12),
                          borderRadius: BorderRadius.circular(15),
                        ),
 
                        child: Text('Login', style: TextStyle(
-                         color: Color(0xfffbefe3),
+                         color: Color(0xfff3ece1),
                          fontSize: 20
                        ),),
                      ),

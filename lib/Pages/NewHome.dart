@@ -33,7 +33,7 @@ class _NewHomePageState extends State<NewHomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xff222b12),
         centerTitle: true,
-        title: Text('GetStore',style: TextStyle(color: Color(0xfffbefe3)),),
+        title: Text('GetStore',style: TextStyle(color: Color(0xfff3ece1)),),
       ),
       body: Container(
         child: Card(
@@ -50,25 +50,35 @@ class _NewHomePageState extends State<NewHomePage> {
                 }else return ListView.builder(
                   itemCount: productslist.length,
                     itemBuilder: (context,index){
-                    return InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetails()));
-                      },
-                      child: Card(
-                        elevation: 2,
-                        color: Colors.white38,
-                        child: Row(
-                          children: [
-                            Icon(Icons.person),
-                            Column(
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> ProductDetails()));
+                        },
+                        child: Card(
+                          margin: EdgeInsets.all(10),
+                          elevation: 3,
+                          color: Color(0xfff3ece1),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
                               children: [
-                                Text('Title:' +productslist[index].title.toString(),),
-                                Text('Price:' +productslist[index].price.toString()),
+                                Icon(Icons.person),
+                                SizedBox(width: 15,),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Title:' +productslist[index].title.toString(),style: TextStyle(fontWeight: FontWeight.w600),),
+                                    Text('Price:' +productslist[index].price.toString(),style: TextStyle(fontWeight: FontWeight.w600)),
+                                    Text('Category:' +productslist[index].category.toString(),style: TextStyle(fontWeight: FontWeight.w600)),
+                                  ],
+                                ),
                               ],
                             ),
-                          ],
-                        )
+                          )
 
+                        ),
                       ),
                     );
                     });

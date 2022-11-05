@@ -10,20 +10,21 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            Container(),
-            Text('Title:'),
-            Text('Price:'),
-            Text('Category:'),
-            Text('Description:'),
-
-
-          ],
+    return Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(child: Icon(Icons.person,size: 100,),),
+              Text('Title:',style: TextStyle(fontWeight: FontWeight.bold),),
+              Text('Price:',style: TextStyle(fontWeight: FontWeight.bold),),
+              Text('Category:',style: TextStyle(fontWeight: FontWeight.bold),),
+              Text('Description:',style: TextStyle(fontWeight: FontWeight.bold),),
+            ],
+          ),
         ),
-      ),
+
     );
   }
 }

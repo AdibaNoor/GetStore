@@ -28,8 +28,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("GetStore", style: TextStyle(fontSize: 34,color: Color(0xfffbefe3)),),
-            Icon(Icons.shopping_cart,size: 100,color: Color(0xfffbefe3),),
+            Text("GetStore", style: TextStyle(fontSize: 34,color: Color(0xfff3ece1),fontWeight: FontWeight.bold),),
+            Icon(Icons.shopping_cart,size: 120,color: Color(0xfff3ece1),),
           ],
         ),
       )
